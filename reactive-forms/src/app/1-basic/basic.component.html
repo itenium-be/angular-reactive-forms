@@ -1,0 +1,42 @@
+<h1>1-Basic</h1>
+
+<div class="col" style="margin-bottom: 50px">
+  <h2>FormControl</h2>
+  Search:
+  <input type="text" [formControl]="search">
+  {{ search$ | async }}
+</div>
+
+
+<hr style="margin-bottom: 30px">
+
+
+<div class="col-6">
+  <h2>FormGroup</h2>
+  <form [formGroup]="frm" (ngSubmit)="submit()">
+    <div class="form-group">
+      <label>Name</label>
+      <input type="text" class="form-control" formControlName="name">
+    </div>
+
+    <div class="form-group">
+      <label>INSS <small>(ex: 78.05.20-101.02)</small></label>
+      <input type="text" class="form-control" formControlName="inss">
+    </div>
+
+    <div class="form-group">
+      <label>Birth Date</label>
+      <input type="text" class="form-control" formControlName="birthDate">
+    </div>
+
+    <div>
+      <button type="button" class="btn btn-secondary" (click)="frm.reset()">Reset</button>
+      <button type="submit" class="btn btn-success">Submit</button>
+    </div>
+  </form>
+</div>
+
+
+<pre>JSON:
+{{ frm.value | json }}
+</pre>

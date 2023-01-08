@@ -1,0 +1,107 @@
+<h1>2-FormBuilder</h1>
+
+<form [formGroup]="frm" (ngSubmit)="submit()">
+<div class="row">
+  <div class="col-12">
+    <h2>Person Informations</h2>
+
+    <div class="alert alert-danger" *ngIf="frm.invalid && frm.dirty">
+      The form is in status '{{ frm.status }}' and cannot be submitted.
+
+      <ul>
+        <li *ngFor="let err of getFormValidationErrors()">
+          <b>{{ err.prop }}</b>: {{ err.errors | json }}
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="col-6">
+    <div class="form-group">
+      <label>Name</label>
+      <input type="text" class="form-control" formControlName="name">
+    </div>
+  </div>
+
+  <div class="col-6">
+    <div class="form-group">
+      <label>Language</label>
+      <select class="form-select" formControlName="language">
+        <option selected value="">Select language</option>
+        <option *ngFor="let lang of Languages" [value]="lang">{{ lang }}</option>
+      </select>
+    </div>
+  </div>
+
+
+  <div class="col-6">
+    <div class="form-group">
+      <label>INSS <small>(ex: 78.05.20-101.02)</small></label>
+      <input type="text" class="form-control" formControlName="inss">
+    </div>
+  </div>
+  <div class="col-6">
+    <div class="form-group">
+      <label>Birth Date</label>
+      <input type="text" class="form-control" formControlName="birthDate">
+    </div>
+  </div>
+
+
+  <div class="col-12" formGroupName="address">
+    <h2>Address</h2>
+
+    <div class="row">
+      <div class="col-6">
+        <div class="form-group">
+          <label>Street</label>
+          <input type="text" class="form-control" formControlName="street">
+        </div>
+      </div>
+      <div class="col-6">
+        <div class="form-group">
+          <label>City</label>
+          <input type="text" class="form-control" formControlName="city">
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-12" formGroupName="business">
+    <h2>Business</h2>
+    <div class="form-check">
+      <input class="form-check-input" type="checkbox" formControlName="active">
+      <label class="form-check-label">Business user</label>
+    </div>
+
+    <div class="row" *ngIf="frm.get('business.active')?.value !== false">
+      <div class="col-6">
+        <div class="form-group">
+          <label>Company Name:</label>
+          <input type="text" class="form-control" formControlName="name">
+        </div>
+      </div>
+      <div class="col-6">
+        <div class="form-group">
+          <label>TAX: </label>
+          <input type="text" class="form-control" formControlName="tax">
+        </div>
+      </div>
+
+      Contact: radios Email / Post
+    </div>
+  </div>
+
+
+
+  <div class="col-12">
+    <button type="button" class="btn btn-secondary" (click)="frm.reset()">Reset</button>
+    <button type="submit" class="btn btn-success" [disabled]="frm.invalid">Submit</button>
+  </div>
+
+  <div class="col-12">
+    <pre>JSON:
+{{ frm.value | json }}</pre>
+  </div>
+</div>
+</form>
