@@ -1,0 +1,66 @@
+<h1>3-FormArray</h1>
+
+<form>
+<div class="row">
+  <div class="col-6">
+    <h2>Complex Array</h2>
+
+    <button (click)="add()"><i class="fa fa-plus"></i> Buy more</button>
+
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>Color</th>
+          <th>Amount</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let control of getControls(); let i=index">
+          <td [formGroup]="control">
+            <select class="form-select" formControlName="color">
+              <option selected value="">Select color</option>
+              <option *ngFor="let color of Colors" [value]="color">{{ color }}</option>
+            </select>
+          </td>
+          <td [formGroup]="control">
+            <input type="number" class="form-control" formControlName="amount">
+          </td>
+          <td>
+            <i class="fa fa-trash" (click)="deleteItem(i)"></i>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="col-6">
+    <pre>JSON:
+{{ frm.value | json }}</pre>
+  </div>
+</div>
+
+
+<hr>
+<br>
+<br>
+
+<div class="row">
+  <h2>Easy Array</h2>
+  <div class="col-6" [formGroup]="easyArray">
+    ID: <input type="number" class="form-control" formControlName="socksId">
+    <div formArrayName="colors">
+      Colors:
+      <span *ngFor="let control of colorsArray.controls; let i=index">
+        <select class="form-select" [formControlName]="i" style="margin-bottom: 6px">
+          <option selected value="">Select color</option>
+          <option *ngFor="let color of Colors" [value]="color">{{ color }}</option>
+        </select>
+      </span>
+    </div>
+  </div>
+  <div class="col-6">
+    <pre>JSON:
+{{ easyArray.value | json }}</pre>
+  </div>
+</div>
+</form>

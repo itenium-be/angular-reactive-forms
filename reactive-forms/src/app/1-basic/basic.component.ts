@@ -42,6 +42,9 @@ export class BasicComponent implements OnInit, OnDestroy {
 
     // Migrating to Angular 14?
     // this.frm = new UntypedFormGroup({});
+
+    // Also see styles.scss
+    // State changes: markAsDirty({ onlySelf?: boolean }), markAsPristine(), markAllAsTouched(), ...
   }
 
 
@@ -52,12 +55,12 @@ export class BasicComponent implements OnInit, OnDestroy {
     ).subscribe((inss: string) => {
       const year = 1900 + parseInt(inss.substring(0, 2), 10);
       const month = parseInt(inss.substring(2, 4), 10) - 1;
-      const day = parseInt(inss.substring(4, 6), 10) - 1;
+      const day = parseInt(inss.substring(4, 6), 10);
       const birthDate = `${year}-${month}-${day}`;
 
       this.frm.get('birthDate')?.setValue(birthDate, { emitEvent: true });
-      // setValue vs patchValue
-      // this.frm.updateValueAndValidity();
+      // setValue vs patchValue({ onlySelf?: boolean; emitEvent?: boolean; })
+      // this.frm.updateValueAndValidity({ onlySelf?: boolean; emitEvent?: boolean; });
       // this.frm.get('birthDate')!
     });
   }

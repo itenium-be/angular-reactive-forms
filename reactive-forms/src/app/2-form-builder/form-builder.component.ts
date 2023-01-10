@@ -2,28 +2,8 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { map, Subscription } from 'rxjs';
 import { getFormValidationErrors, ValidationResult } from 'src/models/helpers';
-import { Languages } from '../../models/data';
-import { isValidInss } from './InszValidator';
-
-
-type AddressModel = {
-  street: string;
-  city: string;
-}
-
-type BusinessModel = {
-  name: string;
-  tax: string;
-}
-
-type PersonModel = {
-  name: string;
-  inss: string;
-  birthDate: Date;
-  language: string;
-  address: AddressModel;
-  business: BusinessModel;
-};
+import { Countries } from '../../models/data';
+import { isValidInss } from './InssValidator';
 
 
 @Component({
@@ -31,21 +11,22 @@ type PersonModel = {
   templateUrl: './form-builder.component.html',
 })
 export class FormBuilderComponent implements OnInit, OnDestroy {
-  Languages = Languages;
+  Countries = Countries;
 
   frm: FormGroup;
   subs: Subscription[] = [];
 
-  constructor(private fb: FormBuilder) {
-    // Validators.email, min/max, pattern, requiredTrue
+  constructor(fb: FormBuilder) {
+    // Validators.email, min/max, pattern
     this.frm = fb.group({
       name: ['', Validators.required],
       inss: ['', {
         validators: [Validators.minLength(11), Validators.maxLength(15), isValidInss()],
         updateOn: 'change' // change / blur / submit
       }],
+      eula: [false, Validators.requiredTrue],
       birthDate: [{ value: null, disabled: true }, Validators.required],
-      language: '',
+      country: '',
       address: fb.group({
         street: '',
         city: ''
@@ -54,16 +35,17 @@ export class FormBuilderComponent implements OnInit, OnDestroy {
         active: false,
         name: '',
         tax: '',
+        correspondence: 'Email'
       }),
     });
 
-    // Records:
-    // const addresses = new FormRecord<FormControl<string | null>>({});
-    // addresses.addControl('Andrew', new FormControl('2340 Folsom St'));
-    // const addresses = fb.record({'Andrew': '2340 Folsom St'});
-
     // Entire non-nullable group:
     // const login = fb.nonNullable.group({ email: '', password: '', });
+
+    // Validator example: InssValidator
+    // AsyncValidator example: EmailValidator
+    // Methods: addValidator, addAsyncValidator, removeValidator, setValidators, hasValidator, clearValidators, ...
+    // Error: hasError, setErrors, getError --> To avoid: use validators instead!
   }
 
   ngOnInit(): void {
@@ -73,7 +55,7 @@ export class FormBuilderComponent implements OnInit, OnDestroy {
     .subscribe((inss: string) => {
       const year = 1900 + parseInt(inss.substring(0, 2), 10);
       const month = parseInt(inss.substring(2, 4), 10) - 1;
-      const day = parseInt(inss.substring(4, 6), 10) - 1;
+      const day = parseInt(inss.substring(4, 6), 10);
       const birthDate = `${year}-${month}-${day}`;
 
       this.frm.get('birthDate')?.setValue(birthDate, { emitEvent: true });

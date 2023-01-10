@@ -9,6 +9,12 @@ import { HomeComponent } from './home/home.component';
 import { TemplateComponent } from './0-template/template.component';
 import { BasicComponent } from './1-basic/basic.component';
 import { FormBuilderComponent } from './2-form-builder/form-builder.component';
+import { FormArrayComponent } from './3-form-array/form-array.component';
+import { FormTestingComponent } from './4-form-testing/form-testing.component';
+import { PersonService } from '../models/person.service';
+import { StockService } from './3-form-array/stock.service';
+import { LanguageSelectComponent } from './5-ControlValueAccessor/LanguageSelect';
+import { LanguageService } from './5-ControlValueAccessor/LanguageService';
 
 @NgModule({
   declarations: [
@@ -18,6 +24,9 @@ import { FormBuilderComponent } from './2-form-builder/form-builder.component';
     TemplateComponent,
     BasicComponent,
     FormBuilderComponent,
+    FormArrayComponent,
+    FormTestingComponent,
+    LanguageSelectComponent
   ],
   imports: [
     BrowserModule,
@@ -29,7 +38,11 @@ import { FormBuilderComponent } from './2-form-builder/form-builder.component';
     // Reactive Forms
     ReactiveFormsModule,
   ],
-  providers: [],
+  providers: [
+    PersonService,
+    StockService,
+    LanguageService,
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

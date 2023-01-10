@@ -1,5 +1,6 @@
-export const Languages = [
-  'Dutch',
-  'French',
-  'English',
+export const Countries = [
+  'Belgium',
+  'Netherlands',
+  'Germany',
+  'France',
 ]

@@ -7,7 +7,6 @@
 
     <div class="alert alert-danger" *ngIf="frm.invalid && frm.dirty">
       The form is in status '{{ frm.status }}' and cannot be submitted.
-      <!-- Statusses: 'VALID' | 'INVALID' | 'PENDING' | 'DISABLED' -->
 
       <ul>
         <li *ngFor="let err of getFormValidationErrors()">
