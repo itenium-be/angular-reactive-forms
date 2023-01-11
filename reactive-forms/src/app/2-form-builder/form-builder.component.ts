@@ -22,15 +22,16 @@ export class FormBuilderComponent implements OnInit, OnDestroy {
       name: ['', Validators.required],
       inss: ['', {
         validators: [Validators.minLength(11), Validators.maxLength(15), isValidInss()],
+        asyncValidators: null,
         updateOn: 'change' // change / blur / submit
       }],
       eula: [false, Validators.requiredTrue],
-      birthDate: [{ value: null, disabled: true }, Validators.required],
+      birthDate: [{ value: null, disabled: true }, Validators.required, /* AsyncValidators */],
       country: '',
       address: fb.group({
         street: '',
         city: ''
-      }),
+      }/*, {validators, asyncValidators, updateOn}*/),
       business: fb.group({
         active: false,
         name: '',
@@ -50,7 +51,7 @@ export class FormBuilderComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     const sub = this.frm.get('inss')!.valueChanges.pipe(
-      map((inss) => (inss ?? '').trim().replace(/-|\./g, ''))
+      map(inss => (inss ?? '').trim().replace(/-|\./g, ''))
     )
     .subscribe((inss: string) => {
       const year = 1900 + parseInt(inss.substring(0, 2), 10);
@@ -70,7 +71,7 @@ export class FormBuilderComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy(): void {
-    this.subs.forEach((sub) => sub.unsubscribe());
+    this.subs.forEach(sub => sub.unsubscribe());
   }
 
   getFormValidationErrors(): ValidationResult[] {

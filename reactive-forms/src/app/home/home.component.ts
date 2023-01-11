@@ -9,7 +9,7 @@ import { Component } from '@angular/core';
       <li><a routerLink="/basic">1-Basics</a></li>
       <li><a routerLink="/form-builder">2-Form Builder</a></li>
       <li><a routerLink="/form-array">3-Form Array</a></li>
-      <li><a routerLink="/form-testing">4-Form Testing</a></li>
+      <li><a routerLink="/form-testing/new-user">4-Form Testing</a></li>
     </ul>
   `,
 })

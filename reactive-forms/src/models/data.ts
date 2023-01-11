@@ -4,3 +4,10 @@ export const Countries = [
   'Germany',
   'France',
 ]
+
+// export enum Countries {
+//   Belgium,
+//   Netherlands,
+//   Germany,
+//   France,
+// }

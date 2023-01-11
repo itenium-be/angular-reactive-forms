@@ -48,7 +48,9 @@
   <h2>Easy Array</h2>
   <div class="col-6" [formGroup]="easyArray">
     ID: <input type="number" class="form-control" formControlName="socksId">
+
     <div formArrayName="colors">
+
       Colors:
       <span *ngFor="let control of colorsArray.controls; let i=index">
         <select class="form-select" [formControlName]="i" style="margin-bottom: 6px">

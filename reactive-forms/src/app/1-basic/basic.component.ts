@@ -44,6 +44,7 @@ export class BasicComponent implements OnInit, OnDestroy {
     // this.frm = new UntypedFormGroup({});
 
     // Also see styles.scss
+    // onlySelf: true -> do not mark parent component
     // State changes: markAsDirty({ onlySelf?: boolean }), markAsPristine(), markAllAsTouched(), ...
   }
 
@@ -59,9 +60,8 @@ export class BasicComponent implements OnInit, OnDestroy {
       const birthDate = `${year}-${month}-${day}`;
 
       this.frm.get('birthDate')?.setValue(birthDate, { emitEvent: true });
-      // setValue vs patchValue({ onlySelf?: boolean; emitEvent?: boolean; })
+      // setValue vs patchValue(val, { onlySelf?: boolean; emitEvent?: boolean; })
       // this.frm.updateValueAndValidity({ onlySelf?: boolean; emitEvent?: boolean; });
-      // this.frm.get('birthDate')!
     });
   }
 

@@ -7,7 +7,7 @@ export type FormContext = {
   subs: Subscription[];
 }
 
-export function createForm(context: FormContext): FormGroup {
+export function createForm(context: FormContext, userId: string | 'new-user'): FormGroup {
   // Create form
   const frm = context.fb.group({
     name: ['', Validators.required],

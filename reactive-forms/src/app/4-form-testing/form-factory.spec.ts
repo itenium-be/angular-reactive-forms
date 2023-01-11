@@ -4,7 +4,7 @@ import { createForm } from "./form-factory";
 describe('form-testing', () => {
   it('sets the birthDate from the INSS', () => {
     const context = {fb: new FormBuilder(), subs: []};
-    const frm = createForm(context);
+    const frm = createForm(context, 'new-user');
 
     frm.get('inss')!.setValue('78.05.20-101.02');
 

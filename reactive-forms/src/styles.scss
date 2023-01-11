@@ -1,16 +1,8 @@
-.form-group {
-  margin-bottom: 6px;
-}
-
-button:not(:first-child) {
-  margin-left: 8px;
-}
-
-.ng-valid[required], .ng-valid.required  {
+.ng-valid[required], .ng-valid.required {
   border-left: 5px solid #42A948;
 }
 
-.ng-invalid:not(form)  {
+.ng-invalid:not(form) {
   border-left: 5px solid #a94442;
 }
 
@@ -18,6 +10,40 @@ button:not(:first-child) {
 // .ng-touched .ng-untouched
 // .ng-dirty .ng-pristine
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.form-group {
+  margin-bottom: 6px;
+}
+
+button:not(:first-child) {
+  margin-left: 8px;
+}
 
 button:disabled, button[disabled] {
   background-color: #a94442 !important;

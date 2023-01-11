@@ -15,4 +15,6 @@ export class TemplateComponent {
   model: Hero = { name: '', alterEgo: '', power: '' };
 
   powers = ['Really Smart', 'Super Flexible', 'Super Hot', 'Weather Changer'];
+
+  submit() {}
 }

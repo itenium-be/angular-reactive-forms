@@ -1,0 +1,46 @@
+<h1>6-IdealForm</h1>
+
+<Form [formGroup]="frm" (ngSubmit)="submit()">
+<Row>
+  <Col cols="12">
+    <h2>Person Informations</h2>
+    <FormErrors [frm]="frm"></FormErrors>
+  </Col>
+
+  <Col cols="6">
+    <TextInput label="Name" formControlName="name"></TextInput>
+  </Col>
+
+  <Col cols="6">
+    <CountrySelect formControlName="country"></CountrySelect>
+  </Col>
+
+
+  <Col cols="6">
+    <Inss formControlName="inss"></Inss>
+  </Col>
+  <Col cols="6">
+    <Date label="BirthDate" formControlName="birthDate"></Date>
+  </Col>
+
+
+  <Col cols="12">
+    <Address formGroupName="address"></Address>
+  </Col>
+
+  <Col cols="12">
+    <Business formGroupName="business"></Business>
+  </Col>
+
+
+  <Col cols="12">
+    <Eula formControlName="eula"></Eula>
+  </Col>
+
+
+  <div cols="12">
+    <ResetButton [frm]="frm"></ResetButton>
+    <SubmitButton></SubmitButton>
+  </div>
+</Row>
+</Form>

@@ -21,12 +21,8 @@ export class FormArrayComponent {
 
     this.easyArray = fb.group({
       socksId: 15,
-      colors: fb.array([
-        fb.control('Red'),
-        fb.control('Green'),
-        fb.control('Blue'),
-      ])
-    })
+      colors: fb.array(['Red', 'Green', 'Blue']),
+    });
   }
 
   get items(): FormArray {
@@ -34,11 +30,11 @@ export class FormArrayComponent {
   }
 
   getControls(): FormGroup[] {
-    return this.items.controls.map((ctl) => ctl as FormGroup);
+    return this.items.controls.map(ctl => ctl as FormGroup);
   }
 
   add(): void {
-    this.items.push(this.fb.group({ amount: 0, color: '' }));
+    this.items.push(this.fb.group({ amount: null, color: '' }));
   }
 
   deleteItem(index: number): void {

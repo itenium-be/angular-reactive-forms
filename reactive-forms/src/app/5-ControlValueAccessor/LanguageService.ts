@@ -2,8 +2,8 @@ import { Injectable } from '@angular/core';
 import { Subject } from 'rxjs';
 
 export enum Language {
-  Dutch = 'Dutch',
-  English = 'English',
+  Dutch = 'nl',
+  English = 'en',
 }
 
 @Injectable({ providedIn: 'root' })
