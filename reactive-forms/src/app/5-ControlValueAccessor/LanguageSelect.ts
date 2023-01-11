@@ -1,5 +1,5 @@
 import { Component, forwardRef } from '@angular/core';
-import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
+import { ControlContainer, ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 import { Language } from './LanguageService';
 
 @Component({
@@ -10,11 +10,13 @@ import { Language } from './LanguageService';
       <option *ngFor="let lang of Languages" [value]="lang">{{ lang }}</option>
     </select>
   `,
-  providers: [{
-    provide: NG_VALUE_ACCESSOR,
-    useExisting: forwardRef(() => LanguageSelectComponent),
-    multi: true,
-  }],
+  providers: [
+    {
+      provide: NG_VALUE_ACCESSOR,
+      useExisting: forwardRef(() => LanguageSelectComponent),
+      multi: true,
+    },
+  ],
 })
 export class LanguageSelectComponent implements ControlValueAccessor {
   Languages = Object.values(Language);
@@ -22,6 +24,10 @@ export class LanguageSelectComponent implements ControlValueAccessor {
   onChange: any = () => {};
   onTouch: any = () => {};
   val = '';
+
+  // Working with <custom-component formGroupName="xxx">
+  // <ng-container [formGroup]="controlContainer.control">
+  // constructor(public controlContainer: ControlContainer) {}
 
   get value() {
     return this.val;
