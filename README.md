@@ -35,6 +35,7 @@ npm test
     - Remove business.active from the FormGroup and have business be null or the BusinessModel (addControl/removeControl)
     - Change the Business checkbox into 2 radios "Business" & "Personal". They both have their own model. Set the other model to null when switching between Business/Personal
 - Change address into "Main Address" and allow Invoicing & Shipping Addresses to be defined differenly (FormRecord or FormArray)
+- Turn the 'Address.City' into a dropdown and limit the possibilities based on the selected Country
 
 
 #### User Experience
@@ -51,6 +52,9 @@ Create Components:
 - 'Tax' which validates the tax nr and formats correct inputs
 - 'Business' which consists of a name and a tax nr
 - Wrap an npm DatePicker (ex: https://github.com/vlio20/angular-datepicker) and use it for the BirthDate
+- 'Text' base component that includes the Bootstrap FormGroup and Label
+    - Prepend a "*" to all labels of form fields that have a required validator.
+- 'Money' with Bootstrap addon '€' and formatting '0.00'
 
 
 ## Resources

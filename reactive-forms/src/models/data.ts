@@ -11,3 +11,11 @@ export const Countries = [
 //   Germany,
 //   France,
 // }
+
+
+// export const CountryCities = {
+//   Belgium: ['Brussel', 'Antwerpen', 'Gent', 'Mechelen', 'Brugge'],
+//   Netherlands: ['Rotterdam', 'Amsterdam', 'Den Haag'],
+//   Germany: ['Berlin', 'Munich', 'Hamburg', 'Nuremberg'],
+//   France: ['Paris', 'Toulouse', 'Nice', 'Lyon', 'Lille', 'Bordeaux']
+// };
