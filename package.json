@@ -1,0 +1,15 @@
+{
+  "name": "reactive-forms",
+  "version": "1.0.0",
+  "description": "Angular: Reactive Forms",
+  "scripts": {
+    "start": "echo 'Do a `cd reactive-forms` first!' && exit 1",
+    "test": "echo 'Do a `cd reactive-forms` first!' && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/itenium-be/angular-reactive-forms.git"
+  },
+  "author": "itenium",
+  "license": "MIT"
+}
