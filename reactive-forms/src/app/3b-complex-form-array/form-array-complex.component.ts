@@ -4,24 +4,19 @@ import { Colors } from './stock.service';
 
 @Component({
   selector: 'app-form-array',
-  templateUrl: './form-array.component.html',
+  templateUrl: './form-array-complex.component.html',
 })
-export class FormArrayComponent {
+export class FormArrayComplexComponent {
   Colors = Colors;
 
   frm: FormGroup;
-  easyArray: FormGroup;
 
   constructor(private fb: FormBuilder) {
     this.frm = fb.group({
       socksId: 15,
-      items: fb.array([fb.group({ amount: 5, color: 'Red' })]),
-    });
-
-
-    this.easyArray = fb.group({
-      socksId: 15,
-      colors: fb.array(['Red', 'Green', 'Blue']),
+      items: fb.array([
+        fb.group({ amount: 5, color: 'Red' })
+      ]),
     });
   }
 
@@ -39,10 +34,5 @@ export class FormArrayComponent {
 
   deleteItem(index: number): void {
     this.items.removeAt(index);
-  }
-
-
-  get colorsArray(): FormArray {
-    return this.easyArray.get('colors') as FormArray;
   }
 }

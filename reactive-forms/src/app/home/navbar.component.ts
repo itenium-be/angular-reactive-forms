@@ -1,4 +1,4 @@
-import { Language, LanguageService } from './../5-ControlValueAccessor/LanguageService';
+import { Language, LanguageService } from '../5-ControlValueAccessor/LanguageService';
 import { Component } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { TranslateService } from '@ngx-translate/core';
