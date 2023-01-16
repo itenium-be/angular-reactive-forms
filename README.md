@@ -9,10 +9,14 @@ npm install
 npm start
 
 # Run the tests
+cd reactive-forms
 npm test
 ```
 
 ## Exercises
+
+Read the proposed exercises below and pick the ones that challenge/interest you!
+
 
 ### Behaviors & Validators
 
@@ -20,10 +24,13 @@ npm test
 
 - Add a FormGroup/Array validator that checks that the same color is not selected twice
 - Must have at least one color with a positive amount. Amounts must always be positive.
-- When ordering a certain amount of Socks of a color, do a backend call to make sure that this does not exceed the current stock (See StockService)
+- When ordering a certain amount of Socks of a color, do a backend call to make sure that this does not exceed the current stock (See `StockService` for a fake backend, see `2-form-builder/EmailValidator` for an AsyncValidator example). Attention: do you want to add a Validator to the one FormArray or to each FormGroup in the FormArray?
 
 
 #### FormTesting
+
+Attention: FormBuilder & FormTesting is two times the same UI, make sure you are adding & testing with the `4-form-testing` component!
+
 
 - Disable Birth Date only when there is a valid INSS filled in
 - Using route /form-testing/{id} if there is an id other than 'new-user', set the value of the Form to the value retrieved from the (fake) PersonService.
@@ -41,7 +48,7 @@ npm test
 #### User Experience
 
 - Display errors in a more user friendly way (ex: "Max length of 15 has been exceeded by 3 characters")
-- Translate the options in the Country dropdown when the user selects a different language in the navbar (see NavbarComponent, LanguageService and assets/i18n)
+- Translate the options in the Country dropdown when the user selects a different language in the navbar (see NavbarComponent, LanguageService and assets/i18n, use `| translate` in a Component template to translate an i18n string)
 
 
 ### ControlValueAccessor
@@ -62,4 +69,6 @@ Create Components:
 - [Official Docs: Reactive Forms](https://angular.io/guide/reactive-forms)
 - [General Cheat Sheet](https://angular.io/guide/cheatsheet)
 - [UnitTesting: Jasmine](https://itenium.be/blog/javascript/javascript-testing-jasmine-syntax/)
+- [Array.prototype for .NET Devs](https://itenium.be/blog/javascript/array-prototype/)
+- [Angular Pipes](https://itenium.be/blog/javascript/angular-pipes/)
 - [Bootstrap 5](https://getbootstrap.com/docs/5.0)
