@@ -5,6 +5,7 @@ import { getFormValidationErrors, ValidationResult } from 'src/models/helpers';
 import { Countries } from '../../models/data';
 import { isValidInss } from './InssValidator';
 
+// ATTN: Do the exercises in the 4-FormTesting component, not in this one!
 
 @Component({
   selector: 'app-form-builder',
