@@ -3,7 +3,7 @@
 <form>
 <div class="row">
   <h2>Easy Array</h2>
-  <div class="col-6" [formGroup]="easyArray">
+  <div class="col-6" [formGroup]="frm">
     ID: <input type="number" class="form-control" formControlName="socksId">
 
     <div formArrayName="colors">
@@ -19,7 +19,7 @@
   </div>
   <div class="col-6">
     <pre>JSON:
-{{ easyArray.value | json }}</pre>
+{{ frm.value | json }}</pre>
   </div>
 </div>
 </form>
