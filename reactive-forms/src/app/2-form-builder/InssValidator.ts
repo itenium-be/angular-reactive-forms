@@ -1,5 +1,5 @@
 import { AbstractControl, ValidationErrors, ValidatorFn } from "@angular/forms";
-const validateInss = require('validate-insz');
+import validateInss from '../1-basic/validate-insz';
 
 export function isValidInss(): ValidatorFn {
   return (control: AbstractControl): ValidationErrors | null => {

@@ -1,7 +1,7 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { debounceTime, distinctUntilChanged, filter, map, Observable, Subscription } from 'rxjs';
-const validateInss = require('validate-insz');
+import validateInss from './validate-insz';
 
 
 type Basic = {
