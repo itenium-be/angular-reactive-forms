@@ -11,6 +11,9 @@ export class FormArrayEasyComponent {
 
   frm: FormGroup;
 
+  // TODO: add a .clear() button
+  // TODO: make everything type safe...
+
   constructor(fb: FormBuilder) {
     this.frm = fb.group({
       socksId: 15,
