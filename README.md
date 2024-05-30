@@ -1,7 +1,7 @@
 Angular: Reactive Forms
 =======================
 
-Node: 18.19.0
+Node: v22.1.0
 
 ```ps1
 cd reactive-forms
