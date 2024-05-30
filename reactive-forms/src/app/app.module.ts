@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { HttpClient, provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
@@ -42,7 +42,6 @@ export function HttpLoaderFactory(http: HttpClient) {
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule,
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,
@@ -57,7 +56,12 @@ export function HttpLoaderFactory(http: HttpClient) {
     // Reactive Forms
     ReactiveFormsModule,
   ],
-  providers: [PersonService, StockService, LanguageService],
   bootstrap: [AppComponent],
+  providers: [
+    PersonService,
+    StockService,
+    LanguageService,
+    provideHttpClient(withInterceptorsFromDi())
+  ]
 })
 export class AppModule {}
