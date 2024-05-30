@@ -48,3 +48,8 @@ button:not(:first-child) {
 button:disabled, button[disabled] {
   background-color: #a94442 !important;
 }
+
+.fa-trash {
+  color: tomato;
+  cursor: pointer;
+}
