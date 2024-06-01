@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { FormArray, FormBuilder, FormGroup } from '@angular/forms';
+import { FormArray, FormBuilder, FormControl, FormGroup } from '@angular/forms';
 import { Colors } from '../3b-complex-form-array/stock.service';
 
 @Component({
@@ -11,9 +11,6 @@ export class FormArrayEasyComponent {
 
   frm: FormGroup;
 
-  // TODO: add a .clear() button
-  // TODO: make everything type safe...
-
   constructor(fb: FormBuilder) {
     this.frm = fb.group({
       socksId: 15,
@@ -21,7 +18,7 @@ export class FormArrayEasyComponent {
     });
   }
 
-  get colorsArray(): FormArray {
+  get colorsArray(): FormArray<FormControl<string>> {
     return this.frm.get('colors') as FormArray;
   }
 }
