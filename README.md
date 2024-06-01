@@ -13,6 +13,19 @@ cd reactive-forms
 npm test
 ```
 
+## New Features
+
+Angular v18:
+
+```ts
+const nameControl = new FormControl<string | null>('name', Validators.required);
+nameControl.events.subscribe(event => {
+  // process individual events like value, touch state, prinstine status, ...
+});
+```
+
+
+
 ## Exercises
 
 Read the proposed exercises below and pick the ones that challenge/interest you!
