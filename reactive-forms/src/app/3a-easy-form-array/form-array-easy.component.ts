@@ -10,16 +10,15 @@ import { Colors } from '../3b-complex-form-array/stock.service';
 export class FormArrayEasyComponent {
   Colors = Colors;
 
-  frm: FormGroup;
+  frm: FormGroup<{
+    socksId: FormControl<number>;
+    colors: FormArray<FormControl<string>>;
+  }>;
 
   constructor(fb: FormBuilder) {
-    this.frm = fb.group({
+    this.frm = fb.nonNullable.group({
       socksId: 15,
-      colors: fb.array(['Red', 'Green', 'Blue']),
+      colors: fb.nonNullable.array(['Red', 'Green', 'Blue']),
     });
-  }
-
-  get colorsArray(): FormArray<FormControl<string>> {
-    return this.frm.get('colors') as FormArray;
   }
 }

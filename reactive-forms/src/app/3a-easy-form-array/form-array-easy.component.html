@@ -9,7 +9,7 @@
     <div formArrayName="colors">
 
       Colors:
-      <span *ngFor="let control of colorsArray.controls; let i=index">
+      <span *ngFor="let control of frm.controls.colors.controls; let i=index">
         <select class="form-select" [formControlName]="i" style="margin-bottom: 6px">
           <option selected value="">Select color</option>
           <option *ngFor="let color of Colors" [value]="color">{{ color }}</option>

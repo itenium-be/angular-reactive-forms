@@ -4,7 +4,7 @@ import { ActivatedRoute } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { getFormValidationErrors, ValidationResult } from 'src/models/helpers';
 import { Countries } from '../../models/data';
-import { createForm } from './form-factory';
+import { createForm, PersonInfo } from './form-factory';
 
 
 @Component({
@@ -15,7 +15,7 @@ import { createForm } from './form-factory';
 export class FormTestingComponent implements OnDestroy {
   Countries = Countries;
 
-  frm: FormGroup;
+  frm: FormGroup<PersonInfo>;
   subs: Subscription[] = [];
 
   constructor(fb: FormBuilder, route: ActivatedRoute) {

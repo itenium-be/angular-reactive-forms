@@ -1,7 +1,14 @@
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
 
-export const Colors = ['Red', 'Green', 'Yellow', 'Blue'];
+export const Colors = ['Red', 'Green', 'Yellow', 'Blue'] as const;
+
+type ElementType <T extends ReadonlyArray<unknown>> = T extends ReadonlyArray<infer ElementType>
+  ? ElementType
+  : never
+
+export type ColorsType = ElementType<typeof Colors>
+
 const stock: {[key: string]: number} = {
   Red: 5,
   Green: 2,

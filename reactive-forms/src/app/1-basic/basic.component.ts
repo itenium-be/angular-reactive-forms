@@ -20,7 +20,7 @@ export class BasicComponent implements OnInit, OnDestroy {
   search = new FormControl<string>('');
   search$: Observable<string>;
 
-  frm: FormGroup;
+  frm: FormGroup<Basic>;
   sub?: Subscription;
 
   constructor() {
@@ -56,9 +56,9 @@ export class BasicComponent implements OnInit, OnDestroy {
       filter(validateInss),
     ).subscribe((inss: string) => {
       const year = 1900 + parseInt(inss.substring(0, 2), 10);
-      const month = parseInt(inss.substring(2, 4), 10) - 1;
+      const month = parseInt(inss.substring(2, 4), 10);
       const day = parseInt(inss.substring(4, 6), 10);
-      const birthDate = `${year}-${month}-${day}`;
+      const birthDate = new Date(`${year}-${month}-${day}`);
 
       this.frm.get('birthDate')?.setValue(birthDate, { emitEvent: true });
       // setValue vs patchValue(val, { onlySelf?: boolean; emitEvent?: boolean; })
