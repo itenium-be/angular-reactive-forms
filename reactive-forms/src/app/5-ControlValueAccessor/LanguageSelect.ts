@@ -17,6 +17,7 @@ import { Language } from './LanguageService';
       multi: true,
     },
   ],
+  standalone: false
 })
 export class LanguageSelectComponent implements ControlValueAccessor {
   Languages = Object.values(Language);

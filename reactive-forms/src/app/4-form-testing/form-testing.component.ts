@@ -10,6 +10,7 @@ import { createForm } from './form-factory';
 @Component({
   selector: 'app-form-testing',
   templateUrl: './form-testing.component.html',
+  standalone: false
 })
 export class FormTestingComponent implements OnDestroy {
   Countries = Countries;

@@ -6,6 +6,7 @@ import { TranslateService } from '@ngx-translate/core';
 @Component({
   selector: 'app-navbar',
   templateUrl: './navbar.component.html',
+  standalone: false
 })
 export class NavbarComponent {
   langFrm = new FormGroup({

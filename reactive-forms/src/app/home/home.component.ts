@@ -14,5 +14,6 @@ import { Component } from '@angular/core';
       <li>5-ControlValueAccessor: See LanguageSelect</li>
     </ul>
   `,
+  standalone: false
 })
 export class HomeComponent {}

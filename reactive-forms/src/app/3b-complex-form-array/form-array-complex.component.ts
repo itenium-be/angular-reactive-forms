@@ -5,6 +5,7 @@ import { Colors } from './stock.service';
 @Component({
   selector: 'app-form-array',
   templateUrl: './form-array-complex.component.html',
+  standalone: false
 })
 export class FormArrayComplexComponent {
   Colors = Colors;

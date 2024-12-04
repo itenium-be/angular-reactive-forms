@@ -5,6 +5,7 @@ import { Colors } from '../3b-complex-form-array/stock.service';
 @Component({
   selector: 'app-form-array-easy',
   templateUrl: './form-array-easy.component.html',
+  standalone: false
 })
 export class FormArrayEasyComponent {
   Colors = Colors;

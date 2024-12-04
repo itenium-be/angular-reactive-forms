@@ -10,6 +10,7 @@ import { isValidInss } from './InssValidator';
 @Component({
   selector: 'app-form-builder',
   templateUrl: './form-builder.component.html',
+  standalone: false
 })
 export class FormBuilderComponent implements OnInit, OnDestroy {
   Countries = Countries;

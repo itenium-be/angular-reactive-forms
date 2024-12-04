@@ -10,6 +10,7 @@ import { TranslateService } from '@ngx-translate/core';
       <router-outlet></router-outlet>
     </div>
   `,
+  standalone: false
 })
 export class AppComponent {
   constructor(translate: TranslateService) {

@@ -10,6 +10,7 @@ type Hero = {
 @Component({
   selector: 'app-template',
   templateUrl: './template.component.html',
+  standalone: false
 })
 export class TemplateComponent {
   model: Hero = { name: '', alterEgo: '', power: '' };

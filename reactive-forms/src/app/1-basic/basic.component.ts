@@ -14,6 +14,7 @@ type Basic = {
 @Component({
   selector: 'app-basic',
   templateUrl: './basic.component.html',
+  standalone: false
 })
 export class BasicComponent implements OnInit, OnDestroy {
   search = new FormControl<string>('');
