@@ -5,11 +5,8 @@ export const Countries = [
   'France',
 ] as const;
 
-type ElementType <T extends ReadonlyArray<unknown>> = T extends ReadonlyArray<infer ElementType>
-  ? ElementType
-  : never
 
-export type CountryType = ElementType<typeof Countries> | ''
+export type CountryType = typeof Countries[number] | ''
 
 // export enum Countries {
 //   Belgium,
